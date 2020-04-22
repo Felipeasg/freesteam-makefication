@@ -3,6 +3,8 @@ Original project
 
 https://sourceforge.net/projects/freesteam/
 
+Based on version 2.1
+
 Dependencies
 ============  
 
