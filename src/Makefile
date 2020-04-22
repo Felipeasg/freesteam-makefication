@@ -2,8 +2,8 @@
 #					 
 
 CC=gcc
-CFLAGS=-std=c99 -c -I/opt/apps/gsl/2.6-gcc-7.5.0/include -fPIC -I./
-LDFLAGS=/opt/apps/gsl/2.6-gcc-7.5.0/lib/libgsl.a /opt/apps/gsl/2.6-gcc-7.5.0/lib/libgslcblas.a -lm -shared
+CFLAGS=-std=c99 -fPIC -c -I/opt/apps/gsl/2.6-gcc-7.5.0/include -I./
+LDFLAGS=-shared /opt/apps/gsl/2.6-gcc-7.5.0/lib/libgsl.a /opt/apps/gsl/2.6-gcc-7.5.0/lib/libgslcblas.a -lm
 #LDFLAGS=-g -L../../../build-gcc-7.5.0 -lopper -lm
 SOURCES=region1.c \
 region2.c \
@@ -34,7 +34,7 @@ EXECUTABLE=libfreesteam.so
 all: $(SOURCES) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
 
 .c.o:
 	$(CC) $(CFLAGS) $< -o $@
